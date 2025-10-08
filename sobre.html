@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <title>Sobre o Elemento Sangue</title>
     <link rel="stylesheet" href="sobre.css">
+    <script src="https://unpkg.com/ogl@1.0.11/dist/ogl.umd.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./LightRays.js"></script>
 </head>
 <body>
     <figure>
         <img class="banner" src="https://i.ytimg.com/vi/gg0RJJlGBS8/maxresdefault.jpg" alt="Elemento Sangue Ordem Paranormal">
         <figcaption>Elemento Sangue - Ordem Paranormal</figcaption>
     </figure>
+    <div id="light-rays-root" style="width: 100%; height: 600px; position: relative;"></div>
     <!-- NOVO CONTAINER ESTILO BANNER -->
     <div class="conteudo-banner">
         <div class="texto-banner">
@@ -36,5 +42,22 @@
     <footer class="creditos">
         By DIABO.<br>
     </footer>
+    <script type="text/babel">
+        const LightRays = window.LightRays;
+        ReactDOM.render(
+            <LightRays
+                raysOrigin="top-center"
+                raysColor="#00ffff"
+                raysSpeed={1.5}
+                lightSpread={0.8}
+                rayLength={1.2}
+                followMouse={true}
+                mouseInfluence={0.1}
+                noiseAmount={0.1}
+                distortion={0.05}
+                className="custom-rays"
+            />
+        , document.getElementById('light-rays-root'));
+    </script>
 </body>
 </html>
